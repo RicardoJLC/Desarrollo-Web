@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Superhéroes Marvel - Sencilla</title>
+  <style>
+    body{font-family:Arial, Helvetica, sans-serif;margin:20px;color:#222;background:#f7f9fb}
+    header{display:flex;justify-content:space-between;align-items:center}
+    nav a{margin-left:12px;text-decoration:none;color:#0366d6}
+    h1{margin:0}
+    .section{margin-top:20px}
+    .grid{display:flex;gap:12px;flex-wrap:wrap}
+    .card{border:1px solid #ddd;background:#fff;padding:10px;border-radius:6px;width:200px;text-align:center;box-shadow:0 1px 3px rgba(0,0,0,0.06)}
+    .card img{width:100%;height:120px;object-fit:cover;border-radius:4px}
+    footer{margin-top:30px;font-size:0.9rem;color:#555}
+    a{color:#0366d6}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Superhéroes Marvel</h1>
+    <nav>
+      <a href="#heroes">Héroes</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="heroes" class="section">
+      <h2>Héroes</h2>
+      <div class="grid">
+        <div class="card">
+          <img src="https://via.placeholder.com/200x120?text=Spider-Man" alt="Spider-Man">
+          <strong>Spider-Man</strong>
+          <p>Agilidad y sentido arácnido.</p>
+        </div>
+
+        <div class="card">
+          <img src="https://via.placeholder.com/200x120?text=Iron+Man" alt="Iron Man">
+          <strong>Iron Man</strong>
+          <p>Armadura y tecnología.</p>
+        </div>
+
+        <div class="card">
+          <img src="https://via.placeholder.com/200x120?text=Captain+America" alt="Captain America">
+          <strong>Captain America</strong>
+          <p>Valor y liderazgo.</p>
+        </div>
+
+        <div class="card">
+          <img src="https://via.placeholder.com/200x120?text=Thor" alt="Thor">
+          <strong>Thor</strong>
+          <p>Dios del trueno.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacto" class="section">
+      <h2>Contacto</h2>
+      <p>Correo: <a href="mailto:info@pum.com">info@pum.com</a></p>
+    </section>
+  </main>
+
+  <footer>
+    © 2025 Página sencilla de ejemplo
+  </footer>
+</body>
+</html>
