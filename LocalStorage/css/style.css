@@ -1,0 +1,35 @@
+body {
+    font-family: Arial;
+    background-color: #8b4e4e;
+    text-align: center;
+    padding-top: 40px;
+}
+
+input {
+    padding: 5px;
+}
+
+button {
+    padding: 5px 10px;
+    margin-left: 5px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+li {
+    background-color: rgb(151, 9, 9);
+    margin: 5px auto;
+    width: 200px;
+    border: 1px solid #0d7e75;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.completada {
+    text-decoration: line-through;
+    color: gray;
+}
