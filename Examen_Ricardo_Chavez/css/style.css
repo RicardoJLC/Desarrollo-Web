@@ -1,0 +1,215 @@
+/* 🎨 Paleta de colores */
+:root {
+  --fondo: #e0fbfc;
+  --tarjeta: #ffffff;
+  --texto: #1a1a1a;
+  --suave: #555555;
+  --principal: #005f73;
+  --principal-2: #0a9396;
+  --principal-3: #94d2bd;
+  --exito: #2b9348;
+  --baja: #b9fbc0;
+  --media: #fde68a;
+  --alta: #ffadad;
+  --sombra: rgba(0, 0, 0, 0.15);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: linear-gradient(135deg, var(--fondo), var(--principal-3));
+  color: var(--texto);
+}
+
+/* CONTENEDOR PRINCIPAL */
+.contenedor {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+/* ENCABEZADO */
+.encabezado-sitio {
+  background: linear-gradient(90deg, var(--principal), var(--principal-2));
+  color: white;
+  padding: 1.2rem 0;
+  box-shadow: 0 4px 8px var(--sombra);
+}
+.encabezado-sitio h1 {
+  margin: 0;
+  text-align: center;
+  font-size: 1.8rem;
+  letter-spacing: 1px;
+}
+.lista-nav {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 0.6rem;
+  padding: 0;
+}
+.lista-nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  transition: background 0.3s, transform 0.2s;
+}
+.lista-nav a:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
+}
+
+/* FORMULARIO Y LISTA DE TAREAS */
+.seccion-formulario,
+.seccion-lista {
+  background: var(--tarjeta);
+  padding: 1.5rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px var(--sombra);
+  margin-top: 1.5rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.seccion-formulario:hover,
+.seccion-lista:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px var(--sombra);
+}
+h2 {
+  color: var(--principal);
+}
+
+/* CAMPOS DEL FORMULARIO */
+.fila-formulario {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+label {
+  font-weight: bold;
+  margin-bottom: 0.3rem;
+  color: var(--principal);
+}
+input,
+select {
+  padding: 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f8f9fa;
+  transition: border 0.3s, box-shadow 0.3s;
+}
+input:focus,
+select:focus {
+  border-color: var(--principal);
+  box-shadow: 0 0 5px var(--principal-2);
+  outline: none;
+}
+.acciones-formulario {
+  display: flex;
+  gap: 0.6rem;
+  justify-content: flex-start;
+}
+button {
+  background: linear-gradient(90deg, var(--principal), var(--principal-2));
+  color: white;
+  border: none;
+  padding: 0.7rem 1.2rem;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s, transform 0.2s;
+}
+button:hover {
+  transform: scale(1.05);
+  background: linear-gradient(90deg, var(--principal-2), var(--principal));
+}
+button[type="reset"] {
+  background: #ccc;
+  color: #000;
+}
+button[type="reset"]:hover {
+  background: #bbb;
+}
+.mensaje {
+  color: var(--exito);
+  margin-top: 0.5rem;
+  min-height: 1.25rem;
+}
+
+/* LISTA DE TAREAS */
+.lista-tareas {
+  list-style: none;
+  padding: 0;
+}
+.tarea {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #eee;
+  padding: 0.8rem;
+  border-radius: 10px;
+  margin-top: 0.6rem;
+  background: linear-gradient(90deg, #ffffff, #f1faff);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.tarea:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 3px 8px var(--sombra);
+}
+.tarea-izquierda {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+.titulo-tarea {
+  font-weight: bold;
+  font-size: 1.05rem;
+}
+.detalle-tarea {
+  color: var(--suave);
+  font-size: 0.9rem;
+}
+.completada .titulo-tarea {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+/* COLORES DE PRIORIDAD */
+.prioridad-baja {
+  background: var(--baja);
+  color: #065f46;
+  padding: 0.3rem 0.6rem;
+  border-radius: 999px;
+  font-weight: bold;
+}
+.prioridad-media {
+  background: var(--media);
+  color: #78350f;
+  padding: 0.3rem 0.6rem;
+  border-radius: 999px;
+  font-weight: bold;
+}
+.prioridad-alta {
+  background: var(--alta);
+  color: #7f1d1d;
+  padding: 0.3rem 0.6rem;
+  border-radius: 999px;
+  font-weight: bold;
+}
+
+/* PIE DE PÁGINA */
+.pie-sitio {
+  text-align: center;
+  padding: 1rem;
+  color: white;
+  margin-top: 2rem;
+  font-size: 0.95rem;
+  background: linear-gradient(90deg, var(--principal), var(--principal-2));
+  box-shadow: 0 -2px 8px var(--sombra);
+}
