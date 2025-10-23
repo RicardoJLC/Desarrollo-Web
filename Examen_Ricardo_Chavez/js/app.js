@@ -1,4 +1,4 @@
-// === Selección de elementos del DOM ===
+
 const formulario = document.getElementById('taskForm');
 const tituloInput = document.getElementById('title');
 const fechaInput = document.getElementById('dueDate');
@@ -87,3 +87,4 @@ listaTareas.addEventListener('click', (evento) => {
 
 // === Cargar y mostrar tareas al abrir la página ===
 mostrarTareas();
+
