@@ -1,4 +1,4 @@
-/* 🎨 Paleta de colores */
+
 :root {
   --fondo: #e0fbfc;
   --tarjeta: #ffffff;
@@ -213,3 +213,4 @@ button[type="reset"]:hover {
   background: linear-gradient(90deg, var(--principal), var(--principal-2));
   box-shadow: 0 -2px 8px var(--sombra);
 }
+
