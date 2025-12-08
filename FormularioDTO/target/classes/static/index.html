@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Usuarios Demo</title>
+
+    <style>
+        body { font-family: Arial; margin: 40px; }
+        input, button, select { padding: 6px; margin: 5px; }
+        .error { color: red; }
+        .success { color: green; }
+        .user-card { border: 1px solid; padding: 10px; width: 260px; margin-top: 10px; }
+    </style>
+</head>
+<body>
+
+<h1>Gestión de Usuarios</h1>
+
+<hr>
+
+<h2>Crear Usuario</h2>
+<input id="name" type="text" placeholder="Nombre"><br>
+<input id="edad" type="number" placeholder="Edad"><br>
+
+<select id="genero">
+    <option value="Masculino">Masculino</option>
+    <option value="Femenino">Femenino</option>
+    <option value="Otro">Otro</option>
+</select>
+
+<button onclick="createUser()">Crear</button>
+<p id="create-msg"></p>
+
+<hr>
+
+<h2>Buscar Usuario por ID</h2>
+<input id="userId" type="number" placeholder="ID">
+<button onclick="getUser()">Buscar</button>
+<div id="user-result"></div>
+
+<hr>
+
+<h2>Listar Usuarios</h2>
+<button onclick="loadUsers()">Cargar Lista</button>
+<div id="user-list"></div>
+
+
+<script>
+
+    async function createUser() {
+        const name = document.getElementById("name").value;
+        const edad = parseInt(document.getElementById("edad").value);
+        const genero = document.getElementById("genero").value;
+        const msg = document.getElementById("create-msg");
+
+        msg.innerHTML = "";
+
+        const response = await fetch("/users", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ name, edad, genero })
+        });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+            msg.innerHTML = "<span class='error'>Error: " + JSON.stringify(data.errors) + "</span>";
+        } else {
+            msg.innerHTML = "<span class='success'>Usuario creado con ID " + data.id + "</span>";
+        }
+    }
+
+
+    async function getUser() {
+        const id = document.getElementById("userId").value;
+        const container = document.getElementById("user-result");
+        container.innerHTML = "";
+
+        const response = await fetch("/users/" + id);
+
+        if (!response.ok) {
+            container.innerHTML = "<p class='error'>Usuario no encontrado</p>";
+            return;
+        }
+
+        const user = await response.json();
+
+        container.innerHTML = `
+        <div class="user-card">
+            <b>ID:</b> ${user.id}<br>
+            <b>Nombre:</b> ${user.name}<br>
+            <b>Edad:</b> ${user.edad}<br>
+            <b>Género:</b> ${user.genero}
+        </div>
+    `;
+    }
+
+    async function loadUsers() {
+        const container = document.getElementById("user-list");
+        container.innerHTML = "";
+
+        const response = await fetch("/users");
+        const users = await response.json();
+
+        users.forEach(user => {
+            container.innerHTML += `
+            <div class="user-card">
+                <b>ID:</b> ${user.id}<br>
+                <b>Nombre:</b> ${user.name}<br>
+                <b>Edad:</b> ${user.edad}<br>
+                <b>Género:</b> ${user.genero}
+            </div>
+        `;
+        });
+    }
+
+</script>
+
+</body>
+</html>
